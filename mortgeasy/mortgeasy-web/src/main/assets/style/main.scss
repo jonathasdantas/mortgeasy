@@ -1,0 +1,209 @@
+// Shared Values
+$default-color: #448aff;
+$secondary-color: #EEE;
+
+$default-background-color: #448aff;
+$secondary-background-color: #7daeff;
+
+$default-font: proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+$default-padding: 10px;
+$default-margin: 10px;
+
+// Function Styles
+@mixin linear-gradient-bg() {
+    background: $default-color; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($default-background-color, $secondary-background-color); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($default-background-color, $secondary-background-color); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($default-background-color, $secondary-background-color); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($default-background-color, $secondary-background-color); /* Standard syntax */
+}
+
+// Geral Definitions
+html {
+    @extend .full-height;
+}
+
+body {
+    @extend .full-height;
+    @extend .no-margin-padding;
+    font-family: $default-font;
+}
+
+.no-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+.full-width {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.full-size {
+    @extend .full-width;
+    @extend .full-height;
+}
+
+main#app {
+    @extend .full-size;
+    @include linear-gradient-bg();
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+// Main Definitions
+$main-container-width: 500px;
+$main-container-height: 700px;
+
+@mixin box-shadow-main() {
+    $box-shadow: 2px 2px 2px 0px rgba(153,153,153,1);
+
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+}
+
+.border-bottom-dashed {
+    border-bottom: 1px dashed $default-color;
+}
+
+.main-container {
+    max-width: $main-container-width;
+    min-width: $main-container-width;
+
+    max-height: $main-container-height;
+
+    padding: $default-padding;
+    margin: $default-margin;
+
+    @include box-shadow-main();
+
+    background-color: #FFF;
+
+    header {
+        font-size: 26px;
+        padding: $default-padding;
+
+        @extend .border-bottom-dashed;
+    }
+
+    header::after {
+        content: '.';
+        font-size: 50px;
+        color: $default-color;
+        text-shadow: 1px 1px #000;
+    }
+
+    article {
+        padding: $default-padding;
+    }
+
+    .mortgage-form {
+        
+    }
+
+    > nav > ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 0;
+    }
+
+    > nav > ul > li {
+        text-align: center;
+
+        flex: 1;
+        list-style: none;
+
+        font-size: 20px;
+        padding: 50px;
+
+        outline: 0;
+    }
+
+    > nav > ul > li a:hover {
+        text-decoration: none;
+        color: $default-color;
+    }
+}
+
+// Result Definitions
+.payment-value {
+    @extend .no-margin-padding;
+    @extend .border-bottom-dashed;
+
+    h1 {
+        @extend .no-margin-padding;
+    }
+}
+
+.result-list {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: $default-margin;
+
+    font-size: 20px;
+
+    .result-item {
+        display: flex;
+        flex-direction: row;
+
+        > div {
+            flex: 1;
+        }
+
+        .result-item-label {
+            flex-direction: row;
+        }
+    }
+}
+
+.facebookIcon {
+    background: none;
+    border: 0;
+    font-size: 17px;
+
+    top: 5px;
+    position: relative;
+
+    outline: 0;
+
+   i {
+        color: #FFF;
+        background-color: #3b5998;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        font-size: 22px;
+
+        position: relative;
+        top: -7px;
+
+        margin-right: $default-margin / 2;
+   }
+
+   i::before {
+        top: 9px;
+        left: -1px;
+        position: relative;
+   }
+}
+
+.more-info-result {
+    margin-top: $default-margin * 2;
+
+    > div {
+        margin-top: $default-margin;
+    }
+}
