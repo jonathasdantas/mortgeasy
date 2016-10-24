@@ -20,6 +20,6 @@ Project for the VanHackathon 2016 (October 21 to October 23).
 
 Finalize the project and the integration with Java WS.
 
-## Licensa
+## License
 
 MIT
