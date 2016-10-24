@@ -1,7 +1,7 @@
 {
-  "name": "reactjs",
+  "name": "morgteasy",
   "version": "1.0.0",
-  "description": "Sampls React Project with all needed tools",
+  "description": "MorgtEasy - VanHackathon 2016 - Project",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
